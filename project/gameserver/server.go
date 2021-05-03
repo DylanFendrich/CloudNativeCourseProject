@@ -20,7 +20,7 @@ import (
 const (
 	port = ":50051"
 	//mongodbEndpoint = "mongodb://172.17.0.2:27017" // Find this from the Mongo container
-	mongodbEndpoint = "mongodb://192.168.0.174:30953" // Find this from the Mongo container
+	mongodbEndpoint = "mongodb://192.168.0.174:32263" // Find this from the Mongo container
 )
 
 type queueID struct {
