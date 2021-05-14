@@ -1,0 +1,74 @@
+Crexiz — 05/01/2021
+sudo docker build -f Dockerfile.server -t dylanfendrich/pokmonserver .
+
+Dylan — 05/01/2021
+sudo docker image push dylanfendrich/pokmonserver
+
+sudo docker build -f Dockerfile.game -t dylanfendrich/pokmongame .
+
+sudo docker image push dylanfendrich/pokmongame
+
+sudo docker login
+
+sluu — 05/01/2021
+alias kubectl='microk8s kubectl'
+
+Crexiz — 05/01/2021
+kubectl apply -f deployment.yml
+
+Dylan — 05/01/2021
+kubectl get services
+
+kubectl get delpoyments
+
+kubectl delete deployment <name>
+
+kubectl delete service <name>
+
+sluu — 05/01/2021
+kubectl describe deployment <name>
+
+Dylan — 05/01/2021
+kubectl get pods
+
+kubectl expose deployment <deployment_name> --type=NodePort --name=<service_name>
+
+sluu — 05/01/2021
+note inside services: < client connects to cluster IP >
+
+sluu — 05/01/2021
+kubectl set image deployments/hello-world hello-world=gcr.io/google-samples/kubernetes-bootcamp:v10
+May 2, 2021
+
+Dylan — 05/02/2021
+kubectl get -n default deploy -o yaml \
+  | linkerd inject - \
+  | kubectl apply -f -
+
+sluu — 05/02/2021
+linkerd -n emojivoto viz stat deploy
+
+shows info for all the deploys
+
+Dylan — 05/02/2021
+https://golang.org/pkg/fmt/
+fmt - The Go Programming Language
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+May 3, 2021
+
+Dylan — 05/03/2021
+linkerd viz dashboard --wait <0m0s>(edited)
+
+one second
+
+kill -9 $(lsof -t <port or i>:<port>)
+
+Crexiz — 05/03/2021
+project
+[10:07 PM]
+linkerd viz dashboard --wait 1s
+
+sluu — 05/03/2021
+kubectl get -n default deploy -o yaml \
+  | linkerd inject - \
+  | kubectl apply -f -
